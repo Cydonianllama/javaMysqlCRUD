@@ -1,0 +1,6 @@
+com\mycompany\mytest\entities\product\ProductRepository.class
+com\mycompany\mytest\main.class
+com\mycompany\mytest\models\Cashier.class
+com\mycompany\mytest\controllers\ProductController.class
+com\mycompany\mytest\models\Product.class
+com\mycompany\mytest\models\Order.class

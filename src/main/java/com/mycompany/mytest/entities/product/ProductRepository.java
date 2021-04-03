@@ -61,6 +61,33 @@ public class ProductRepository {
         
     }
     
+    public Product finBynameProduct(String nameProduct){
+        
+        Product productReport = new Product();
+        try{
+            
+            Connection conn = connection.getConnection();
+            PreparedStatement pt  = conn.prepareStatement("Select * from products where nameProduct = ?");
+            pt.setString(1,nameProduct);
+            pt.execute();
+            
+            ResultSet rs = pt.getResultSet();
+            
+            while(rs.next()){
+                productReport.setIdProduct(rs.getString("idProduct"));
+                productReport.setNameProduct(rs.getString("nameProduct"));
+                productReport.setTypeProduct(rs.getString("typeProduct"));
+                productReport.setCurrentPrice(Float.parseFloat(rs.getString("currentPrices")));
+            }
+            
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        
+        return productReport;
+        
+    }
+    
     public Product find(String idProduct){
         
         String idProductQuery = "idProduct = '"+idProduct+"'";
